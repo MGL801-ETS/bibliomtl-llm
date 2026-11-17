@@ -1,0 +1,33 @@
+{
+  "name": "MGL801 – BiblioMTL (Java 21, Maven, JUnit 5)",
+  "image": "mcr.microsoft.com/devcontainers/java:1-21",
+  "features": {
+    "ghcr.io/devcontainers/features/java:1": {
+      "version": "none",
+      "installMaven": "true",
+      "installGradle": "false"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "vscjava.vscode-java-pack"
+      ],
+      "settings": {
+        "java.configuration.updateBuildConfiguration": "automatic",
+        "java.test.config": { "name": "defaut" },
+        "github.copilot.enable": { "*": false },
+        "github.copilot.chat.enabled": false,
+        "editor.inlineSuggest.enabled": false
+      }
+    },
+    "codespaces": {
+      "openFiles": [
+        "README.md",
+        "src/main/java/ca/ets/mgl801/bibliomtl/Amendes.java",
+        "src/test/java/ca/ets/mgl801/bibliomtl/AmendesTest.java"
+      ]
+    }
+  },
+  "postCreateCommand": "mvn -q -B dependency:go-offline test-compile"
+}
